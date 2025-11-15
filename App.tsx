@@ -5,12 +5,13 @@ import HeartIcon from './components/icons/HeartIcon';
 import FloatingParticles from './components/FloatingParticles';
 
 // ** HƯỚNG DẪN THÊM NHẠC CỦA BẠN **
-// 1. Tạo một thư mục public tên là 'assets' trong dự án của bạn.
-// 2. Thêm hai tệp mp3 của bạn vào thư mục đó (ví dụ: 'background.mp3', 'celebrate.mp3').
-// 3. Các biến dưới đây đã được thiết lập để tải các tệp này.
+// 1. Dán URL nhạc của bạn vào đây hoặc...
+// 2. Tạo một thư mục public tên là 'assets' trong dự án của bạn.
+// 3. Thêm các tệp mp3 của bạn vào thư mục đó (ví dụ: 'background.mp3', 'celebrate.mp3').
+// 4. Cập nhật các biến dưới đây để trỏ đến tệp của bạn (ví dụ: '/assets/celebrate.mp3').
 
 // Nhạc nền nhẹ nhàng bắt đầu sau khi người dùng nhấp vào màn hình ban đầu
-const initialMusicUrl = '/assets/background.mp3';
+const initialMusicUrl = 'https://cdn.pixabay.com/audio/2025/06/09/audio_50b8be7252.mp3';
 // Nhạc chúc mừng hơn phát sau khi nhấp vào bánh
 const wishMusicUrl = '/assets/celebrate.mp3';
 

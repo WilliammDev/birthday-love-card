@@ -88,19 +88,29 @@
       .animate-kenburns-gentle {
         animation: kenburns-gentle 20s ease-in-out infinite alternate;
       }
+      @keyframes fadeInContent {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+      .animate-fade-in-content {
+        animation: fadeInContent 1s ease-out 0.5s forwards;
+        opacity: 0;
+      }
       @keyframes revealText {
           from {
               opacity: 0;
-              transform: translateY(15px);
           }
           to {
               opacity: 1;
-              transform: translateY(0);
           }
       }
       .animate-reveal-text {
           opacity: 0;
-          animation: revealText 0.8s ease-out forwards;
+          animation: revealText 1.5s ease-out forwards;
       }
       @keyframes rise-and-fade {
         0% {
