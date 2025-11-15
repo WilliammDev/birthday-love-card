@@ -97,11 +97,11 @@ const App = () => {
           </div>
         ) : (
           <>
-            <main className="w-full max-w-lg bg-white/70 backdrop-blur-sm rounded-2xl shadow-2xl p-4 md:p-6 transition-all duration-500 animate-fade-in-up flex flex-col items-center gap-4">
+            <main className="w-full max-w-lg bg-white/70 backdrop-blur-sm rounded-2xl shadow-2xl p-4 transition-all duration-500 animate-fade-in-up flex flex-col items-center gap-2">
               <LoveMessage show={showMessage} />
               <MemoryCake onClick={handleCakeClick} />
             </main>
-            <footer className="mt-4 text-center text-rose-800/70 text-sm animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
+            <footer className="mt-2 text-center text-rose-800/70 text-sm animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
               <p className="flex items-center justify-center gap-2">
                 Làm với <HeartIcon className="w-4 h-4 text-red-500 animate-pulse-gentle" /> dành cho tình yêu của đời tôi.
               </p>

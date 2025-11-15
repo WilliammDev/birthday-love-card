@@ -6,13 +6,13 @@ interface LoveMessageProps {
 
 const LoveMessage = ({ show }: LoveMessageProps) => {
   return (
-    <section className="bg-rose-50/50 p-6 rounded-lg shadow-inner w-full flex flex-col justify-center transition-all duration-500">
+    <section className="bg-rose-50/50 p-4 rounded-lg shadow-inner w-full flex flex-col justify-center transition-all duration-500">
       {show ? (
         <>
-          <h1 className="font-dancing text-3xl sm:text-4xl font-bold text-rose-800 tracking-wide text-center animate-reveal-text">
+          <h1 className="font-dancing text-3xl sm:text-3xl font-bold text-rose-800 tracking-wide text-center animate-reveal-text">
             Chúc Mừng Sinh Nhật, Tình Yêu Ơi
           </h1>
-          <div className="text-gray-700 max-w-none font-dancing text-lg md:text-xl space-y-4 leading-relaxed mt-4">
+          <div className="text-gray-700 max-w-none font-dancing text-lg space-y-2 leading-relaxed mt-2">
             <p className="animate-reveal-text" style={{ animationDelay: '0.5s' }}>
               Gửi người thương dấu yêu,
             </p>
@@ -30,7 +30,7 @@ const LoveMessage = ({ show }: LoveMessageProps) => {
         </>
       ) : (
         <div className="text-center animate-fade-in-up">
-          <h1 className="font-dancing text-3xl sm:text-4xl font-bold text-rose-800 tracking-wide">
+          <h1 className="font-dancing text-3xl sm:text-3xl font-bold text-rose-800 tracking-wide">
             Lời Chúc Đặc Biệt Gửi Tình Yêu
           </h1>
         </div>
