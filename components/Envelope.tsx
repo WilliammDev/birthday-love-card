@@ -27,86 +27,59 @@ const Envelope: React.FC<EnvelopeProps> = ({ onOpen }) => {
     if (isOpening) return;
     setIsOpening(true);
     // Wait for the animation to play before calling onOpen
-    setTimeout(onOpen, 1200); 
+    setTimeout(onOpen, 1500); 
   };
 
   return (
-    <div className="relative">
+    <div className="relative flex flex-col items-center">
       <FloatingHearts />
-      <div 
-        className={`relative w-[300px] h-[200px] sm:w-[350px] sm:h-[233px] cursor-pointer group animate-pulse-gentle`}
-        style={{ perspective: '1000px' }}
+      <div
+        className="relative w-[300px] h-[400px] sm:w-[350px] sm:h-[466px] cursor-pointer group"
+        style={{ perspective: '1200px' }}
         onClick={handleClick}
-        aria-label="An envelope for you, click to open"
+        aria-label="A love card for you, click to open"
         role="button"
         tabIndex={0}
         onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && handleClick()}
       >
         <style>
           {`
-            @keyframes fadeOutEnvelope {
+            @keyframes fadeOutCard {
               from { opacity: 1; transform: scale(1); }
               to { opacity: 0; transform: scale(0.8); }
             }
-            .animate-fade-out-envelope {
-              animation: fadeOutEnvelope 1s ease-in 0.2s forwards;
+            .animate-fade-out-card {
+              animation: fadeOutCard 1s ease-in 0.5s forwards;
             }
           `}
         </style>
-        <div className={`${isOpening ? 'animate-fade-out-envelope' : ''}`}>
-          {/* Envelope back */}
-          <div className="absolute w-full h-full bg-rose-200 rounded-lg shadow-xl"></div>
-          
-          {/* The letter inside (just a peek) */}
-          <div className={`absolute top-0 left-0 w-full h-full bg-rose-50 rounded-lg shadow-inner transition-transform duration-700 ease-in-out ${isOpening ? '-translate-y-24' : 'translate-y-0'} group-hover:-translate-y-2`}>
-            <div className="p-4 text-center">
-                <h2 className="font-dancing text-2xl text-rose-800">For My Soul</h2>
+        {/* Card Container */}
+        <div className={`relative w-full h-full transition-transform duration-1000 ${isOpening ? 'animate-fade-out-card' : 'animate-pulse-gentle'}`} style={{ transformStyle: 'preserve-3d' }}>
+            {/* Card Back (what you see behind the opened cover) */}
+            <div className="absolute top-0 left-0 w-full h-full bg-rose-50 rounded-xl shadow-2xl flex items-center justify-center p-8">
+               <div className="text-center">
+                 <h2 className="font-dancing text-3xl text-rose-700">My love...</h2>
+                 <p className="mt-4 text-gray-600">...every moment with you is a treasure.</p>
+               </div>
             </div>
-          </div>
 
-          {/* Envelope flap */}
-          <div className="absolute top-0 left-0 w-full h-1/2 origin-top transition-transform duration-700 ease-in-out" style={{ transformStyle: 'preserve-3d', transform: isOpening ? 'rotateX(180deg)' : 'rotateX(0deg)' }}>
-            <div className="absolute w-full h-full" style={{ backfaceVisibility: 'hidden' }}>
-              {/* Flap front */}
-              <div 
-                className="absolute top-0 left-0 w-full h-full bg-rose-300 rounded-t-lg"
-                style={{ 
-                  clipPath: 'polygon(0 0, 100% 0, 50% 100%)'
-                }}
-              ></div>
+            {/* Card Front (the cover that swings open) */}
+            <div
+              className={`absolute top-0 left-0 w-full h-full bg-rose-200 rounded-xl shadow-2xl transition-transform duration-1000 ease-in-out flex flex-col items-center justify-center p-8 origin-left`}
+              style={{
+                transform: isOpening ? 'rotateY(-160deg)' : 'rotateY(0deg)',
+                backfaceVisibility: 'hidden',
+              }}
+            >
+              <HeartIcon className="w-20 h-20 text-red-500" />
+              <h2 className="font-dancing text-4xl text-rose-800 mt-4">For My Soul</h2>
             </div>
-            <div className="absolute w-full h-full" style={{ backfaceVisibility: 'hidden', transform: 'rotateX(180deg)' }}>
-                {/* Flap back (inside) */}
-                <div
-                  className="absolute top-0 left-0 w-full h-full bg-rose-200 rounded-t-lg"
-                  style={{
-                    clipPath: 'polygon(0 0, 100% 0, 50% 100%)'
-                  }}
-                ></div>
-            </div>
-          </div>
-          
-          {/* Envelope front */}
-          <div className="absolute top-1/2 left-0 w-full h-1/2 bg-rose-300 rounded-b-lg">
-            {/* Left triangle */}
-            <div className="absolute top-0 left-0 w-1/2 h-full bg-rose-200" style={{ clipPath: 'polygon(0 0, 100% 100%, 0 100%)' }}></div>
-            {/* Right triangle */}
-            <div className="absolute top-0 right-0 w-1/2 h-full bg-rose-200" style={{ clipPath: 'polygon(100% 0, 100% 100%, 0 100%)' }}></div>
-          </div>
-
-          {/* Seal */}
-          <div className={`absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-[60%] transition-opacity duration-300 ${isOpening ? 'opacity-0' : 'opacity-100'}`}>
-            <HeartIcon className="w-8 h-8 text-red-500" />
-          </div>
         </div>
-
-
-        {/* "Click to Open" text */}
-        <div className={`absolute -bottom-10 left-1/2 -translate-x-1/2 text-rose-800/80 font-semibold transition-opacity duration-300 ${isOpening ? 'opacity-0' : 'opacity-80'}`}>
+      </div>
+       {/* "Click to Open" text */}
+       <div className={`mt-8 text-rose-800/80 font-semibold transition-opacity duration-300 ${isOpening ? 'opacity-0' : 'opacity-80'}`}>
           Click to Open
         </div>
-
-      </div>
     </div>
   );
 };
