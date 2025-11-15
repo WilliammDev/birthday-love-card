@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>Happy Birthday My Love</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -11,11 +11,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
       @keyframes flicker {
-        0%, 100% { opacity: 1; }
-        50% { opacity: 0.5; }
+        0%, 100% { transform: scaleY(1); opacity: 1; }
+        50% { transform: scaleY(0.95); opacity: 0.7; }
       }
       .animate-flicker {
         animation: flicker 1.5s infinite;
+        transform-origin: bottom;
       }
       @keyframes fadeInUp {
         from {
@@ -58,6 +59,55 @@
         animation: floatUp infinite ease-in;
         opacity: 0;
       }
+      @keyframes develop {
+        0% { filter: sepia(0.8) saturate(0.5) brightness(0.9); }
+        100% { filter: sepia(0) saturate(1) brightness(1); }
+      }
+      .animate-develop {
+        animation: develop 1.5s ease-in-out forwards;
+      }
+      @keyframes pulse-shadow {
+        0%, 100% { box-shadow: 0 10px 15px -3px rgba(253, 164, 175, 0.4), 0 4px 6px -2px rgba(253, 164, 175, 0.3); }
+        50% { box-shadow: 0 20px 25px -5px rgba(253, 164, 175, 0.6), 0 10px 10px -5px rgba(253, 164, 175, 0.5); }
+      }
+      .animate-pulse-shadow {
+          animation: pulse-shadow 4s infinite ease-in-out;
+      }
+      @keyframes revealText {
+          from {
+              opacity: 0;
+              transform: translateY(15px);
+          }
+          to {
+              opacity: 1;
+              transform: translateY(0);
+          }
+      }
+      .animate-reveal-text {
+          opacity: 0;
+          animation: revealText 0.8s ease-out forwards;
+      }
+      @keyframes rise-and-fade {
+        0% {
+          opacity: 0;
+          transform: translateY(0);
+          stroke-dashoffset: 20;
+        }
+        20% {
+          opacity: 0.8;
+        }
+        100% {
+          opacity: 0;
+          transform: translateY(-30px);
+          stroke-dashoffset: 0;
+        }
+      }
+      .animate-smoke {
+        animation: rise-and-fade 2.5s ease-out forwards;
+        opacity: 0;
+        stroke-dasharray: 20;
+        stroke-linecap: round;
+      }
       body {
         font-family: 'Lato', sans-serif;
       }
@@ -68,8 +118,9 @@
   <script type="importmap">
 {
   "imports": {
-    "react/": "https://aistudiocdn.com/react@^19.2.0/",
     "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-dom/client": "https://aistudiocdn.com/react-dom@^19.2.0/client",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
     "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/"
   }
 }

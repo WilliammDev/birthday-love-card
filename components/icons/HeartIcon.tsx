@@ -6,7 +6,7 @@ interface HeartIconProps {
   style?: React.CSSProperties;
 }
 
-const HeartIcon: React.FC<HeartIconProps> = ({ className, style }) => {
+const HeartIcon = ({ className, style }: HeartIconProps) => {
   return (
     <svg 
       xmlns="http://www.w3.org/2000/svg" 
