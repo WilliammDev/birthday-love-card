@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import HeartIcon from './icons/HeartIcon';
 
-// Create an 'assets' folder in your project's public directory
-// and add your images there. Then, update the paths in this array.
+// Tạo một thư mục 'assets' trong thư mục public của dự án
+// và thêm hình ảnh của bạn vào đó. Sau đó, cập nhật đường dẫn trong mảng này.
 const images = [
-  // Example: '/assets/our-trip.jpg',
-  // Example: '/assets/first-date.png',
-  // For demonstration, I'm using placeholder images from Unsplash. Replace these with your own.
+  // Ví dụ: '/assets/our-trip.jpg',
+  // Ví dụ: '/assets/first-date.png',
+  // Để minh họa, tôi đang sử dụng hình ảnh giữ chỗ từ Unsplash. Thay thế chúng bằng hình của bạn.
   'https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?q=80&w=1888&auto=format&fit=crop',
   'https://images.unsplash.com/photo-1502602898657-3e91760c0337?q=80&w=1974&auto=format&fit=crop',
   'https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=2070&auto=format&fit=crop',
@@ -24,7 +24,7 @@ const MemoryCake = ({ onClick }: MemoryCakeProps) => {
     if (images.length > 1) {
       const timer = setInterval(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-      }, 5000); // Change image every 5 seconds
+      }, 5000); // Thay đổi hình ảnh mỗi 5 giây
       return () => clearInterval(timer);
     }
   }, []);
@@ -43,25 +43,27 @@ const MemoryCake = ({ onClick }: MemoryCakeProps) => {
       role="button"
       tabIndex={0}
       onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && handleWish()}
-      aria-label="Make a wish and click to reveal a message"
+      aria-label="Hãy ước và nhấn để xem lời nhắn"
     >
-      {/* Polaroid-style Image container */}
+      {/* Khung ảnh kiểu Polaroid */}
       <div className="w-full transform -rotate-2 transition-transform duration-500 group-hover:rotate-0 group-hover:scale-105">
         <div className="w-full aspect-[4/5] bg-white p-3 pb-12 rounded-lg relative animate-pulse-shadow shadow-lg">
-          <div className="w-full h-full relative overflow-hidden bg-gray-100 rounded-md">
+          <div
+            className="w-full h-full relative overflow-hidden bg-gray-100 rounded-md"
+          >
             {images.length > 0 ? (
               images.map((img, index) => (
                 <img
                   key={index}
                   src={img}
-                  alt={`Beautiful memory ${index + 1}`}
+                  alt={`Kỷ niệm đẹp ${index + 1}`}
                   className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${index === currentIndex ? 'opacity-100 z-10 animate-kenburns-gentle' : 'opacity-0 z-0'}`}
                 />
               ))
             ) : (
               <div className="w-full h-full flex flex-col items-center justify-center text-center p-4">
                 <HeartIcon className="w-12 h-12 text-rose-300 mb-2" />
-                <p className="text-gray-500 font-dancing text-xl">Our special moments...</p>
+                <p className="text-gray-500 font-dancing text-xl">Khoảnh khắc của đôi ta...</p>
               </div>
             )}
           </div>
@@ -69,11 +71,11 @@ const MemoryCake = ({ onClick }: MemoryCakeProps) => {
       </div>
 
 
-      {/* Cake and wish message below the image */}
+      {/* Bánh và lời chúc bên dưới ảnh */}
       <div className="flex flex-col items-center mt-8 transition-transform duration-300 group-hover:scale-105">
         {!wishMade && (
             <h3 className="font-dancing text-3xl text-rose-600 group-hover:text-purple-700 transition-colors animate-pulse-gentle drop-shadow-md">
-                Make a wish!
+                Ước một điều đi!
             </h3>
         )}
         <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" className="w-48 h-48 -mt-4 drop-shadow-lg opacity-95">
@@ -112,30 +114,30 @@ const MemoryCake = ({ onClick }: MemoryCakeProps) => {
           </defs>
           
           <g filter="url(#cake-shadow)">
-            {/* Bottom Layer */}
+            {/* Tầng dưới */}
             <path d="M25 75 V 60 C 25 55, 75 55, 75 60 V 75 C 75 80, 25 80, 25 75" fill="url(#pink-side)" />
             <ellipse cx="50" cy="60" rx="25" ry="7" fill="url(#pink-icing)" />
             <ellipse cx="50" cy="75" rx="25" ry="3" fill="#000" opacity="0.1" filter="url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxmaWx0ZXIgaWQ9ImIiPjxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjEiLz48L2ZpbHRlcj48L3N2Zz4jYik=" />
             
-            {/* Middle Icing Drip */}
+            {/* Lớp kem chảy ở giữa */}
             <path d="M25,60 C 30,68 35,58 40,62 C 45,66 50,58 55,62 C 60,66 65,58 70,64 L 75,60 Z" fill="url(#white-drip)" />
 
-            {/* Top Layer */}
+            {/* Tầng trên */}
             <path d="M30 55 V 40 C 30 35, 70 35, 70 40 V 55 C 70 60, 30 60, 30 55" fill="url(#pink-side)" />
             <ellipse cx="50" cy="40" rx="20" ry="6" fill="#f9a8d4" />
             <ellipse cx="50" cy="55" rx="20" ry="3" fill="#000" opacity="0.1" filter="url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxmaWx0ZXIgaWQ9ImIiPjxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjEiLz48L2ZpbHRlcj48L3N2Zz4jYik=" />
 
-            {/* Top Icing Drip */}
+            {/* Lớp kem chảy trên cùng */}
             <path d="M30,40 C 35,46 40,38 45,42 C 50,46 55,38 60,42 C 65,46 68,38 70,40 Z" fill="url(#white-drip)" />
             <ellipse cx="50" cy="40" rx="20" ry="6" fill="url(#top-icing-highlight)" />
           </g>
 
-          {/* Candles */}
+          {/* Nến */}
           <rect x="41.5" y="30" width="3" height="10" fill="url(#candle-grad-red)" rx="1.5"/>
           <rect x="48.5" y="28" width="3" height="12" fill="url(#candle-grad-blue)" rx="1.5"/>
           <rect x="55.5" y="30" width="3" height="10" fill="url(#candle-grad-red)" rx="1.5"/>
 
-          {/* Flames & Smoke */}
+          {/* Lửa & Khói */}
           {!wishMade ? (
             <g>
               <ellipse cx="43" cy="27" rx="1.5" ry="4" fill="#FFD700" className="animate-flicker" style={{ animationDelay: '0.1s' }}/>
@@ -155,7 +157,7 @@ const MemoryCake = ({ onClick }: MemoryCakeProps) => {
               </g>
           )}
 
-          {/* Sprinkles */}
+          {/* Hạt trang trí */}
           <circle cx="38" cy="43" r="0.8" fill="#34d399" />
           <circle cx="45" cy="45" r="0.8" fill="#60a5fa" />
           <circle cx="55" cy="42" r="0.8" fill="#fbbf24" />

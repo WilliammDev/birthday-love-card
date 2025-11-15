@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>Happy Birthday My Love</title>
+    <title>Chúc Mừng Sinh Nhật Tình Yêu Của Tôi</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,7 +31,7 @@
       .animate-fade-in-up {
         animation: fadeInUp 0.8s ease-out forwards;
       }
-       @keyframes pulse {
+      @keyframes pulse-gentle {
         0%, 100% {
           transform: scale(1);
         }
@@ -40,24 +40,35 @@
         }
       }
       .animate-pulse-gentle {
-        animation: pulse 3s infinite ease-in-out;
+        animation: pulse-gentle 3s infinite ease-in-out;
       }
-      @keyframes floatUp {
+      @keyframes heartbeat {
+        0% { transform: scale(1); }
+        10% { transform: scale(1.15); }
+        20% { transform: scale(1); }
+        30% { transform: scale(1.1); }
+        40% { transform: scale(1); }
+        100% { transform: scale(1); }
+      }
+      .animate-heartbeat {
+        animation: heartbeat 2.5s infinite ease-out;
+      }
+      @keyframes float-up-rotate {
         0% {
-          transform: translateY(0);
-          opacity: 0;
-        }
-        25%, 75% {
-          opacity: 0.9;
+          transform: translateY(0) rotate(0deg);
+          opacity: 1;
         }
         100% {
-          transform: translateY(-250px);
+          transform: translateY(-100vh) rotate(360deg);
           opacity: 0;
         }
       }
-      .animate-float-up {
-        animation: floatUp infinite ease-in;
+      .animate-float-up-rotate {
+        animation: float-up-rotate linear forwards;
         opacity: 0;
+      }
+      .text-shadow {
+        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
       }
       @keyframes pulse-shadow {
         0%, 100% { box-shadow: 0 10px 15px -3px rgba(253, 164, 175, 0.4), 0 4px 6px -2px rgba(253, 164, 175, 0.3); }
