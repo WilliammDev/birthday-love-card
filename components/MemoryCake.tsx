@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import HeartIcon from './icons/HeartIcon';
 
 // Create an 'assets' folder in your project's public directory
 // and add your images there. Then, update the paths in this array.
@@ -36,7 +37,7 @@ const MemoryCake = ({ onClick }: MemoryCakeProps) => {
   }
 
   return (
-    <section 
+    <section
       className="w-full max-w-sm flex flex-col items-center justify-center cursor-pointer group"
       onClick={handleWish}
       role="button"
@@ -44,34 +45,38 @@ const MemoryCake = ({ onClick }: MemoryCakeProps) => {
       onKeyDown={(e) => (e.key === 'Enter' || e.key === ' ') && handleWish()}
       aria-label="Make a wish and click to reveal a message"
     >
-      {/* Image container */}
-      <div className="w-full aspect-square bg-white p-4 rounded-md transition-transform duration-300 group-hover:scale-105 relative animate-pulse-shadow">
-        <div className="w-full h-full relative">
-          {images.length > 0 ? (
-            images.map((img, index) => (
-              <img
-                key={index}
-                src={img}
-                alt={`Beautiful memory ${index + 1}`}
-                className={`absolute top-0 left-0 w-full h-full object-cover rounded-sm transition-opacity duration-1000 ease-in-out ${index === currentIndex ? 'opacity-100 z-10 animate-develop' : 'opacity-0 z-0'}`}
-              />
-            ))
-          ) : (
-            <div className="w-full h-full border-2 border-dashed border-gray-300 rounded-sm flex flex-col items-center justify-center text-center p-4">
-              <p className="text-gray-500">Add photos to the 'images' array in the code to see them here.</p>
-            </div>
-          )}
+      {/* Polaroid-style Image container */}
+      <div className="w-full transform -rotate-2 transition-transform duration-500 group-hover:rotate-0 group-hover:scale-105">
+        <div className="w-full aspect-[4/5] bg-white p-3 pb-12 rounded-lg relative animate-pulse-shadow shadow-lg">
+          <div className="w-full h-full relative overflow-hidden bg-gray-100 rounded-md">
+            {images.length > 0 ? (
+              images.map((img, index) => (
+                <img
+                  key={index}
+                  src={img}
+                  alt={`Beautiful memory ${index + 1}`}
+                  className={`absolute top-0 left-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${index === currentIndex ? 'opacity-100 z-10 animate-kenburns-gentle' : 'opacity-0 z-0'}`}
+                />
+              ))
+            ) : (
+              <div className="w-full h-full flex flex-col items-center justify-center text-center p-4">
+                <HeartIcon className="w-12 h-12 text-rose-300 mb-2" />
+                <p className="text-gray-500 font-dancing text-xl">Our special moments...</p>
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
+
       {/* Cake and wish message below the image */}
-      <div className="flex flex-col items-center mt-4 transition-transform duration-300 group-hover:scale-105">
+      <div className="flex flex-col items-center mt-8 transition-transform duration-300 group-hover:scale-105">
         {!wishMade && (
             <h3 className="font-dancing text-3xl text-rose-600 group-hover:text-purple-700 transition-colors animate-pulse-gentle drop-shadow-md">
                 Make a wish!
             </h3>
         )}
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" className="w-48 h-48 drop-shadow-lg opacity-95">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" className="w-48 h-48 -mt-4 drop-shadow-lg opacity-95">
           <defs>
             <filter id="cake-shadow" x="-50%" y="-50%" width="200%" height="200%">
               <feDropShadow dx="0" dy="5" stdDeviation="5" floodColor="#f472b6" floodOpacity="0.3" />
