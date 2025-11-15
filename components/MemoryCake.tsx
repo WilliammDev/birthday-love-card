@@ -47,7 +47,7 @@ const MemoryCake = ({ onClick }: MemoryCakeProps) => {
     >
       {/* Khung ảnh kiểu Polaroid */}
       <div className="w-full transform -rotate-2 transition-transform duration-500 group-hover:rotate-0 group-hover:scale-105">
-        <div className="w-full aspect-[4/5] bg-white p-3 pb-12 rounded-lg relative animate-pulse-shadow shadow-lg">
+        <div className="w-full aspect-square bg-white p-2 pb-10 rounded-lg relative animate-pulse-shadow shadow-lg">
           <div
             className="w-full h-full relative overflow-hidden bg-gray-100 rounded-md"
           >
@@ -72,13 +72,13 @@ const MemoryCake = ({ onClick }: MemoryCakeProps) => {
 
 
       {/* Bánh và lời chúc bên dưới ảnh */}
-      <div className="flex flex-col items-center mt-8 transition-transform duration-300 group-hover:scale-105">
+      <div className="flex flex-col items-center mt-4 transition-transform duration-300 group-hover:scale-105">
         {!wishMade && (
-            <h3 className="font-dancing text-3xl text-rose-600 group-hover:text-purple-700 transition-colors animate-pulse-gentle drop-shadow-md">
+            <h3 className="font-dancing text-2xl text-rose-600 group-hover:text-purple-700 transition-colors animate-pulse-gentle drop-shadow-md">
                 Ước một điều đi!
             </h3>
         )}
-        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" className="w-48 h-48 -mt-4 drop-shadow-lg opacity-95">
+        <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" className="w-36 h-36 -mt-2 drop-shadow-lg opacity-95">
           <defs>
             <filter id="cake-shadow" x="-50%" y="-50%" width="200%" height="200%">
               <feDropShadow dx="0" dy="5" stdDeviation="5" floodColor="#f472b6" floodOpacity="0.3" />
