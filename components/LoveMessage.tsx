@@ -32,16 +32,16 @@ const LoveMessage = ({ show }: LoveMessageProps) => {
             Chúc Mừng Sinh Nhật, Tình Yêu Ơi
           </h1>
           <div className="text-gray-700 max-w-none font-dancing text-xl space-y-4 leading-relaxed mt-6">
-            <p className="animate-reveal-text" style={{ animationDelay: '1.3s' }}>
+            <p className="animate-reveal-text" style={{ animationDelay: '3.5s' }}>
               Gửi người thương dấu yêu,
             </p>
-            <p className="animate-reveal-text" style={{ animationDelay: '2.1s' }}>
+            <p className="animate-reveal-text" style={{ animationDelay: '6.5s' }}>
               Vào ngày đặc biệt này, thế giới tỏa sáng hơn vì có bạn. Mỗi khoảnh khắc bên nhau là một giấc mơ tuyệt đẹp.
             </p>
-            <p className="animate-reveal-text" style={{ animationDelay: '2.9s' }}>
+            <p className="animate-reveal-text" style={{ animationDelay: '9.5s' }}>
               Chúc mừng sinh nhật người bạn tri kỷ tuyệt vời của tôi. Yêu bạn nhiều hơn lời nói có thể diễn tả.
             </p>
-            <p className="text-right animate-reveal-text" style={{ animationDelay: '3.7s' }}>
+            <p className="text-right animate-reveal-text" style={{ animationDelay: '12.5s' }}>
               Mãi mãi về sau, <br/>
               Người tri kỷ yêu thương của bạn.
             </p>
