@@ -10,11 +10,11 @@ const LoveMessage = ({ show }: LoveMessageProps) => {
       {/* Initial Title State */}
       <div
         className={`text-center overflow-hidden transition-all duration-700 ease-out ${
-          show ? 'max-h-0 opacity-0' : 'max-h-[100px] opacity-100'
+          show ? 'max-h-0 opacity-0' : 'max-h-[80px] opacity-100'
         }`}
         aria-hidden={show}
       >
-        <h1 className="font-dancing text-3xl sm:text-3xl font-bold text-rose-800 tracking-wide">
+        <h1 className="font-dancing text-3xl sm:text-4xl font-bold text-rose-800 tracking-wide">
           Lời Chúc Đặc Biệt Gửi Tình Yêu
         </h1>
       </div>
@@ -22,16 +22,16 @@ const LoveMessage = ({ show }: LoveMessageProps) => {
       {/* Revealed Message State */}
       <div
         className={`overflow-hidden transition-all duration-[1200ms] ease-out ${
-          show ? 'max-h-[500px]' : 'max-h-0'
+          show ? 'max-h-[600px]' : 'max-h-0'
         }`}
         aria-hidden={!show}
       >
         {/* Wrapper to fade in content AFTER container expands */}
         <div className={show ? 'animate-fade-in-content' : 'invisible'}>
-          <h1 className="font-dancing text-3xl sm:text-3xl font-bold text-rose-800 tracking-wide text-center animate-reveal-text" style={{ animationDelay: '0.5s' }}>
+          <h1 className="font-dancing text-3xl sm:text-4xl font-bold text-rose-800 tracking-wide text-center animate-reveal-text" style={{ animationDelay: '0.5s' }}>
             Chúc Mừng Sinh Nhật, Tình Yêu Ơi
           </h1>
-          <div className="text-gray-700 max-w-none font-dancing text-lg space-y-2 leading-relaxed mt-2">
+          <div className="text-gray-700 max-w-none font-dancing text-xl space-y-4 leading-relaxed mt-6">
             <p className="animate-reveal-text" style={{ animationDelay: '1.3s' }}>
               Gửi người thương dấu yêu,
             </p>

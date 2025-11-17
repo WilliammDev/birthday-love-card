@@ -13,7 +13,7 @@ import FloatingParticles from './components/FloatingParticles';
 // Nhạc nền nhẹ nhàng bắt đầu sau khi người dùng nhấp vào màn hình ban đầu
 const initialMusicUrl = 'https://cdn.pixabay.com/audio/2025/06/09/audio_50b8be7252.mp3';
 // Nhạc chúc mừng hơn phát sau khi nhấp vào bánh
-const wishMusicUrl = '/assets/celebrate.mp3';
+const wishMusicUrl = 'https://cdn.pixabay.com/audio/2025/06/09/audio_50b8be7252.mp3';
 
 
 const App = () => {
