@@ -43,10 +43,10 @@ const LoveMessage = ({ show }: LoveMessageProps) => {
               Ngày hôm nay chính là ngày tuyệt vời nhất vì đó là sinh nhật em 💕!
             </p>
             <p className="animate-reveal-text" style={{ animationDelay: '10s' }}>
-              Chúc em iuuu của anh luôn luôn xinh đẹp, hạnh phúc, vui vẻ và luôn luôn yêu anh 😍!
+              Chúc em iuuu của anh luôn luôn xinh đẹp, hạnh phúc, vui vẻ và giữ mãi nụ cười của anh nhó 😍😍!
             </p>
             <p className="text-right animate-reveal-text" style={{ animationDelay: '13s' }}>
-              Mãi mãi nụ cười của anh nhó 😘, <br />
+              Yêu em hai lầnnnnn ❤️❤️, <br />
               Cục vàng của emmmm 🥰
             </p>
           </div>

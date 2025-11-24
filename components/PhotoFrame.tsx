@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import HeartIcon from './icons/HeartIcon';
+import { imageConfig } from '../config/imageConfig';
 
 interface PhotoFrameProps {
     folder: 'first' | 'second';
@@ -10,30 +11,24 @@ const PhotoFrame = ({ folder }: PhotoFrameProps) => {
     const [currentIndex, setCurrentIndex] = useState(0);
 
     useEffect(() => {
-        // Dynamically load images from the specified folder
-        const loadImages = async () => {
-            const imageFiles: string[] = [];
-            const folderPath = `/assets/images/${folder}`;
+        // Load images based on config
+        const imageFiles: string[] = [];
+        const folderPath = `/assets/images/${folder}`;
+        const imageCount = imageConfig[folder];
 
-            // Determine number of images based on folder
-            const imageCount = folder === 'first' ? 5 : 4;
+        // Load images in order (1.jpg, 2.jpg, 3.jpg, etc.)
+        for (let i = 1; i <= imageCount; i++) {
+            imageFiles.push(`${folderPath}/${i}.jpg`);
+        }
 
-            // Load images in order (1.jpg, 2.jpg, 3.jpg, etc.)
-            for (let i = 1; i <= imageCount; i++) {
-                imageFiles.push(`${folderPath}/${i}.jpg`);
-            }
-
-            setImages(imageFiles);
-        };
-
-        loadImages();
+        setImages(imageFiles);
     }, [folder]);
 
     useEffect(() => {
         if (images.length > 1) {
             const timer = setInterval(() => {
                 setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-            }, 2000); // Thay đổi hình ảnh mỗi 5 giây
+            }, 2000); // Thay đổi hình ảnh mỗi 2 giây
             return () => clearInterval(timer);
         }
     }, [images]);

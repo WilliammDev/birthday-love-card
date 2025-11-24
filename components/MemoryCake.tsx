@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react';
 import HeartIcon from './icons/HeartIcon';
+import { imageConfig } from '../config/imageConfig';
 
-// Tạo một thư mục 'assets' trong thư mục public của dự án
-// và thêm hình ảnh của bạn vào đó. Sau đó, cập nhật đường dẫn trong mảng này.
-const images = [
-  '/assets/images/first/1.jpg',
-  '/assets/images/first/2.jpg',
-  '/assets/images/first/3.jpg',
-  '/assets/images/first/4.jpg',
-  '/assets/images/first/5.jpg',
-];
+// Generate image paths dynamically based on config
+const generateImages = () => {
+  const images: string[] = [];
+  for (let i = 1; i <= imageConfig.first; i++) {
+    images.push(`/assets/images/first/${i}.jpg`);
+  }
+  return images;
+};
+
+const images = generateImages();
 
 interface MemoryCakeProps {
   onClick: () => void;
