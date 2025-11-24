@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import LoveMessage from './components/LoveMessage';
 import MemoryCake from './components/MemoryCake';
+import PhotoFrame from './components/PhotoFrame';
 import HeartIcon from './components/icons/HeartIcon';
 import FloatingParticles from './components/FloatingParticles';
 
@@ -19,6 +20,7 @@ const wishMusicUrl = 'https://cdn.pixabay.com/audio/2025/06/09/audio_50b8be7252.
 const App = () => {
   const [showMessage, setShowMessage] = useState(false);
   const [isExperienceStarted, setIsExperienceStarted] = useState(false);
+  const [cakeZoomed, setCakeZoomed] = useState(false);
   const initialAudioRef = useRef<HTMLAudioElement | null>(null);
   const wishAudioRef = useRef<HTMLAudioElement | null>(null);
 
@@ -28,7 +30,7 @@ const App = () => {
     if (initialMusicUrl) {
       initialAudioRef.current = new Audio(initialMusicUrl);
       initialAudioRef.current.loop = true;
-      initialAudioRef.current.volume = 0.5; // Bắt đầu với âm lượng nhỏ hơn
+      initialAudioRef.current.volume = 0.5;
     }
 
     // Tải trước nhạc "ước" nếu có URL.
@@ -46,7 +48,7 @@ const App = () => {
       wishAudioRef.current = null;
     }
   }, []);
-  
+
   const handleStartExperience = () => {
     setIsExperienceStarted(true);
     if (initialAudioRef.current?.paused) {
@@ -57,14 +59,17 @@ const App = () => {
   };
 
   const handleCakeClick = () => {
+    // First click: Zoom cake to center
+    if (!cakeZoomed) {
+      setCakeZoomed(true);
+      return;
+    }
+
+    // Second click (blow): Show message
     setShowMessage(true);
-
-    // Dừng nhạc ban đầu
     initialAudioRef.current?.pause();
-
-    // Phát nhạc "ước"
     wishAudioRef.current?.play().catch(error => {
-        console.error("Không thể phát nhạc chúc mừng:", error);
+      console.error("Không thể phát nhạc chúc mừng:", error);
     });
   };
 
@@ -80,33 +85,70 @@ const App = () => {
     >
       <FloatingParticles />
       <div className="relative z-10 w-full flex flex-col items-center justify-center">
+        {/* SCREEN 1: Landing */}
         {!isExperienceStarted ? (
           <div className="flex flex-col items-center justify-center text-center p-8 animate-fade-in-up">
-              <div className="w-full max-w-lg bg-white/70 backdrop-blur-sm rounded-2xl shadow-2xl p-6 md:p-10 transition-all duration-500 flex flex-col items-center gap-6">
-                  <h1 className="font-dancing text-4xl sm:text-5xl font-bold text-rose-800 tracking-wide">
-                      Một lời nhắn đặc biệt đang chờ bạn...
-                  </h1>
-                  <p className="text-lg text-gray-600">Nhấn vào trái tim để mở thiệp nhé.</p>
-                  <button
-                      onClick={handleStartExperience}
-                      className="mt-4 animate-heartbeat transition-transform duration-300 hover:scale-110"
-                      aria-label="Bắt đầu trải nghiệm và phát nhạc"
-                  >
-                      <HeartIcon className="w-20 h-20 text-red-400 hover:text-red-500 transition-colors" />
-                  </button>
-              </div>
+            <div className="w-full max-w-lg bg-white/70 backdrop-blur-sm rounded-2xl shadow-2xl p-6 md:p-10 transition-all duration-500 flex flex-col items-center gap-6">
+              <h1 className="font-dancing text-4xl sm:text-5xl font-bold text-rose-800 tracking-wide">
+                Một lời nhắn đặc biệt đang chờ bạn...
+              </h1>
+              <p className="text-lg text-gray-600">Nhấn vào trái tim để mở thiệp nhé.</p>
+              <button
+                onClick={handleStartExperience}
+                className="mt-4 animate-heartbeat transition-transform duration-300 hover:scale-110"
+                aria-label="Bắt đầu trải nghiệm và phát nhạc"
+              >
+                <HeartIcon className="w-20 h-20 text-red-400 hover:text-red-500 transition-colors" />
+              </button>
+            </div>
           </div>
         ) : (
           <>
-            <main className="w-full max-w-lg bg-white/70 backdrop-blur-sm rounded-2xl shadow-2xl p-4 transition-all duration-500 animate-fade-in-up flex flex-col items-center gap-2">
-              <LoveMessage show={showMessage} />
-              <MemoryCake onClick={handleCakeClick} />
-            </main>
-            <footer className="mt-2 text-center text-rose-800/70 text-sm animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
-              <p className="flex items-center justify-center gap-2">
-                Làm với <HeartIcon className="w-4 h-4 text-red-500 animate-pulse-gentle" /> dành cho tình yêu của đời tôi.
-              </p>
-            </footer>
+            {/* SCREEN 2a: Normal layout - photo + cake */}
+            {!cakeZoomed && !showMessage && (
+              <main className="w-full max-w-lg bg-white/70 backdrop-blur-sm rounded-2xl shadow-2xl p-4 transition-all duration-500 animate-fade-in-up flex flex-col items-center gap-2">
+                <LoveMessage show={false} />
+                <MemoryCake onClick={handleCakeClick} />
+              </main>
+            )}
+
+            {/* SCREEN 2b: Zoomed cake ONLY in center with blur */}
+            {cakeZoomed && !showMessage && (
+              <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+                <div className="absolute inset-0 bg-gradient-to-br from-rose-100/80 via-purple-200/80 to-pink-200/80 backdrop-blur-xl" />
+
+                <div className="relative z-10 animate-cake-zoom flex flex-col items-center w-full">
+                  {/* Simplified Text Area - Cake is Spotlight */}
+                  <div className="text-center mb-10 w-full max-w-[90%] mx-auto">
+                    {/* Title removed as requested */}
+
+                    <p className="text-sm sm:text-lg text-rose-700/80 animate-fade-in-up font-medium" style={{ animationDelay: '0.3s' }}>
+                      (Nhấn vào bánh để thổi nến ✨)
+                    </p>
+                  </div>
+
+                  {/* Cake zoomed in larger */}
+                  <div className="transform scale-125 sm:scale-150 transition-transform duration-700">
+                    <MemoryCake onClick={handleCakeClick} hidePhoto={true} enableBlowAnimation={true} />
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* SCREEN 3: Photo + Message (no cake) */}
+            {showMessage && (
+              <>
+                <main className="w-full max-w-lg bg-white/70 backdrop-blur-sm rounded-2xl shadow-2xl p-4 transition-all duration-500 animate-fade-in-up flex flex-col items-center gap-2">
+                  <PhotoFrame />
+                  <LoveMessage show={true} />
+                </main>
+                <footer className="mt-2 text-center text-rose-800/70 text-sm animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
+                  <p className="flex items-center justify-center gap-2">
+                    Làm với <HeartIcon className="w-4 h-4 text-red-500 animate-pulse-gentle" /> dành cho tình yêu của đời tôi.
+                  </p>
+                </footer>
+              </>
+            )}
           </>
         )}
       </div>

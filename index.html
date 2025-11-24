@@ -1,145 +1,270 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <title>Chúc Mừng Sinh Nhật Tình Yêu Của Tôi</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-    <style>
-      @keyframes flicker {
-        0%, 100% { transform: scaleY(1); opacity: 1; }
-        50% { transform: scaleY(0.95); opacity: 0.7; }
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>Chúc Mừng Sinh Nhật Tình Yêu Của Tôi</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Lato:wght@300;400;700&display=swap"
+    rel="stylesheet">
+  <style>
+    @keyframes flicker {
+
+      0%,
+      100% {
+        transform: scaleY(1);
+        opacity: 1;
       }
-      .animate-flicker {
-        animation: flicker 1.5s infinite;
-        transform-origin: bottom;
+
+      50% {
+        transform: scaleY(0.95);
+        opacity: 0.7;
       }
-      @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(20px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+    }
+
+    .animate-flicker {
+      animation: flicker 1.5s infinite;
+      transform-origin: bottom;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
       }
-      .animate-fade-in-up {
-        animation: fadeInUp 0.8s ease-out forwards;
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
       }
-      @keyframes pulse-gentle {
-        0%, 100% {
-          transform: scale(1);
-        }
-        50% {
-          transform: scale(1.03);
-        }
+    }
+
+    .animate-fade-in-up {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+
+    @keyframes pulse-gentle {
+
+      0%,
+      100% {
+        transform: scale(1);
       }
-      .animate-pulse-gentle {
-        animation: pulse-gentle 3s infinite ease-in-out;
+
+      50% {
+        transform: scale(1.03);
       }
-      @keyframes heartbeat {
-        0% { transform: scale(1); }
-        10% { transform: scale(1.15); }
-        20% { transform: scale(1); }
-        30% { transform: scale(1.1); }
-        40% { transform: scale(1); }
-        100% { transform: scale(1); }
+    }
+
+    .animate-pulse-gentle {
+      animation: pulse-gentle 3s infinite ease-in-out;
+    }
+
+    @keyframes heartbeat {
+      0% {
+        transform: scale(1);
       }
-      .animate-heartbeat {
-        animation: heartbeat 2.5s infinite ease-out;
+
+      10% {
+        transform: scale(1.15);
       }
-      @keyframes float-up-rotate {
-        0% {
-          transform: translateY(0) rotate(0deg);
-          opacity: 1;
-        }
-        100% {
-          transform: translateY(-100vh) rotate(360deg);
-          opacity: 0;
-        }
+
+      20% {
+        transform: scale(1);
       }
-      .animate-float-up-rotate {
-        animation: float-up-rotate linear forwards;
+
+      30% {
+        transform: scale(1.1);
+      }
+
+      40% {
+        transform: scale(1);
+      }
+
+      100% {
+        transform: scale(1);
+      }
+    }
+
+    .animate-heartbeat {
+      animation: heartbeat 2.5s infinite ease-out;
+    }
+
+    @keyframes float-up-rotate {
+      0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 1;
+      }
+
+      100% {
+        transform: translateY(-100vh) rotate(360deg);
         opacity: 0;
       }
-      .text-shadow {
-        text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    }
+
+    .animate-float-up-rotate {
+      animation: float-up-rotate linear forwards;
+      opacity: 0;
+    }
+
+    .text-shadow {
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    @keyframes pulse-shadow {
+
+      0%,
+      100% {
+        box-shadow: 0 10px 15px -3px rgba(253, 164, 175, 0.4), 0 4px 6px -2px rgba(253, 164, 175, 0.3);
       }
-      @keyframes pulse-shadow {
-        0%, 100% { box-shadow: 0 10px 15px -3px rgba(253, 164, 175, 0.4), 0 4px 6px -2px rgba(253, 164, 175, 0.3); }
-        50% { box-shadow: 0 20px 25px -5px rgba(253, 164, 175, 0.6), 0 10px 10px -5px rgba(253, 164, 175, 0.5); }
+
+      50% {
+        box-shadow: 0 20px 25px -5px rgba(253, 164, 175, 0.6), 0 10px 10px -5px rgba(253, 164, 175, 0.5);
       }
-      .animate-pulse-shadow {
-          animation: pulse-shadow 4s infinite ease-in-out;
+    }
+
+    .animate-pulse-shadow {
+      animation: pulse-shadow 4s infinite ease-in-out;
+    }
+
+    @keyframes kenburns-gentle {
+      from {
+        transform: scale(1.1) translate(-2%, -2%);
       }
-       @keyframes kenburns-gentle {
-        from {
-          transform: scale(1.1) translate(-2%, -2%);
-        }
-        to {
-          transform: scale(1.1) translate(2%, 2%);
-        }
+
+      to {
+        transform: scale(1.1) translate(2%, 2%);
       }
-      .animate-kenburns-gentle {
-        animation: kenburns-gentle 20s ease-in-out infinite alternate;
-      }
-      @keyframes fadeInContent {
-        from {
-          opacity: 0;
-        }
-        to {
-          opacity: 1;
-        }
-      }
-      .animate-fade-in-content {
-        animation: fadeInContent 1s ease-out 0.5s forwards;
+    }
+
+    .animate-kenburns-gentle {
+      animation: kenburns-gentle 20s ease-in-out infinite alternate;
+    }
+
+    @keyframes fadeInContent {
+      from {
         opacity: 0;
       }
-      @keyframes revealText {
-          from {
-              opacity: 0;
-          }
-          to {
-              opacity: 1;
-          }
+
+      to {
+        opacity: 1;
       }
-      .animate-reveal-text {
-          opacity: 0;
-          animation: revealText 1.5s ease-out forwards;
-      }
-      @keyframes rise-and-fade {
-        0% {
-          opacity: 0;
-          transform: translateY(0);
-          stroke-dashoffset: 20;
-        }
-        20% {
-          opacity: 0.8;
-        }
-        100% {
-          opacity: 0;
-          transform: translateY(-30px);
-          stroke-dashoffset: 0;
-        }
-      }
-      .animate-smoke {
-        animation: rise-and-fade 2.5s ease-out forwards;
+    }
+
+    .animate-fade-in-content {
+      animation: fadeInContent 1s ease-out 0.5s forwards;
+      opacity: 0;
+    }
+
+    @keyframes revealText {
+      from {
         opacity: 0;
-        stroke-dasharray: 20;
-        stroke-linecap: round;
       }
-      body {
-        font-family: 'Lato', sans-serif;
+
+      to {
+        opacity: 1;
       }
-      h1, h2, h3, .font-dancing {
-        font-family: 'Dancing Script', cursive;
+    }
+
+    .animate-reveal-text {
+      opacity: 0;
+      animation: revealText 1.5s ease-out forwards;
+    }
+
+    @keyframes rise-and-fade {
+      0% {
+        opacity: 0;
+        transform: translateY(0);
+        stroke-dashoffset: 20;
       }
-    </style>
+
+      20% {
+        opacity: 0.8;
+      }
+
+      100% {
+        opacity: 0;
+        transform: translateY(-30px);
+        stroke-dashoffset: 0;
+      }
+    }
+
+    .animate-smoke {
+      animation: rise-and-fade 2.5s ease-out forwards;
+      opacity: 0;
+      stroke-dasharray: 20;
+      stroke-linecap: round;
+    }
+
+    body {
+      font-family: 'Lato', sans-serif;
+    }
+
+    h1,
+    h2,
+    h3,
+    .font-dancing {
+      font-family: 'Dancing Script', cursive;
+    }
+
+    /* Cake zoom animation for Screen 2b */
+    @keyframes cakeZoom {
+      0% {
+        transform: scale(1);
+        opacity: 0.8;
+      }
+
+      100% {
+        transform: scale(2);
+        opacity: 1;
+      }
+    }
+
+    .animate-cake-zoom {
+      animation: cakeZoom 1.5s cubic-bezier(0.4, 0.0, 0.2, 1) forwards;
+    }
+
+    /* Mobile responsive for iPhone 13, XS Max */
+    @media (max-width: 428px) {
+      .max-w-lg {
+        max-width: 95% !important;
+      }
+
+      h1.font-dancing {
+        font-size: 1.75rem !important;
+      }
+
+      h2.font-dancing {
+        font-size: 1.5rem !important;
+      }
+
+      .text-xl {
+        font-size: 1.1rem !important;
+      }
+
+      .p-6 {
+        padding: 1rem !important;
+      }
+
+      .p-4 {
+        padding: 0.75rem !important;
+      }
+    }
+
+    @media (max-width: 390px) {
+      h1.font-dancing {
+        font-size: 1.5rem !important;
+      }
+
+      .text-xl {
+        font-size: 1rem !important;
+      }
+    }
+  </style>
   <script type="importmap">
 {
   "imports": {
@@ -151,8 +276,10 @@
 }
 </script>
 </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/index.tsx"></script>
-  </body>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
 </html>
