@@ -35,7 +35,7 @@ const LoveMessage = ({ show }: LoveMessageProps) => {
           <h1 className="font-dancing text-3xl sm:text-4xl font-bold text-rose-800 tracking-wide text-center animate-reveal-text" style={{ animationDelay: '1s' }}>
             Happy Birthday My Soul 💕
           </h1>
-          <div className="text-gray-700 max-w-none font-dancing text-xl sm:text-2xl space-y-2 leading-relaxed mt-3">
+          <div className="text-gray-700 max-w-none font-dancing text-xl sm:text-3xl space-y-2 leading-relaxed mt-3">
             <p className="animate-reveal-text" style={{ animationDelay: '4s' }}>
               🥳 Gửi cục cưng của anh!
             </p>
