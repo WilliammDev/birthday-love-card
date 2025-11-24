@@ -17,7 +17,7 @@ const LoveMessage = ({ show }: LoveMessageProps) => {
         aria-hidden={show}
       >
         <h1 className="font-dancing text-3xl sm:text-4xl font-bold text-rose-800 tracking-wide">
-          Lời Chúc Đặc Biệt Gửi Tình Yêu
+          Lời Chúc Đặc Biệt Gửi Em
         </h1>
       </div>
 
@@ -33,21 +33,21 @@ const LoveMessage = ({ show }: LoveMessageProps) => {
         {/* Wrapper to fade in content AFTER container expands */}
         <div className={show ? 'animate-fade-in-content' : 'invisible'}>
           <h1 className="font-dancing text-3xl sm:text-4xl font-bold text-rose-800 tracking-wide text-center animate-reveal-text" style={{ animationDelay: '1s' }}>
-            Chúc Mừng Sinh Nhật, Tình Yêu Ơi
+            Happy Birthday My Soul 💕
           </h1>
           <div className="text-gray-700 max-w-none font-dancing text-xl sm:text-2xl space-y-2 leading-relaxed mt-3">
             <p className="animate-reveal-text" style={{ animationDelay: '4s' }}>
-              Gửi người thương dấu yêu,
+              🥳 Gửi cục cưng của anh!
             </p>
             <p className="animate-reveal-text" style={{ animationDelay: '7s' }}>
-              Vào ngày đặc biệt này, thế giới tỏa sáng hơn vì có bạn. Mỗi khoảnh khắc bên nhau là một giấc mơ tuyệt đẹp.
+              Ngày hôm nay chính là ngày tuyệt vời nhất vì đó là sinh nhật em 💕!
             </p>
             <p className="animate-reveal-text" style={{ animationDelay: '10s' }}>
-              Chúc mừng sinh nhật người bạn tri kỷ tuyệt vời của tôi. Yêu bạn nhiều hơn lời nói có thể diễn tả.
+              Chúc em iuuu của anh luôn luôn xinh đẹp, hạnh phúc, vui vẻ và luôn luôn yêu anh 😍!
             </p>
             <p className="text-right animate-reveal-text" style={{ animationDelay: '13s' }}>
-              Mãi mãi về sau, <br />
-              Người tri kỷ yêu thương của bạn.
+              Mãi mãi nụ cười của anh nhó 😘, <br />
+              Cục vàng của emmmm 🥰
             </p>
           </div>
         </div>

@@ -4,12 +4,11 @@ import HeartIcon from './icons/HeartIcon';
 // Tạo một thư mục 'assets' trong thư mục public của dự án
 // và thêm hình ảnh của bạn vào đó. Sau đó, cập nhật đường dẫn trong mảng này.
 const images = [
-  // Ví dụ: '/assets/our-trip.jpg',
-  // Ví dụ: '/assets/first-date.png',
-  // Để minh họa, tôi đang sử dụng hình ảnh giữ chỗ từ Unsplash. Thay thế chúng bằng hình của bạn.
-  'https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?q=80&w=1888&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1502602898657-3e91760c0337?q=80&w=1974&auto=format&fit=crop',
-  'https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=2070&auto=format&fit=crop',
+  '/assets/images/first/1.jpg',
+  '/assets/images/first/2.jpg',
+  '/assets/images/first/3.jpg',
+  '/assets/images/first/4.jpg',
+  '/assets/images/first/5.jpg',
 ];
 
 interface MemoryCakeProps {

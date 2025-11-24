@@ -14,7 +14,7 @@ import FloatingParticles from './components/FloatingParticles';
 // Nhạc nền nhẹ nhàng bắt đầu sau khi người dùng nhấp vào màn hình ban đầu
 const initialMusicUrl = 'https://cdn.pixabay.com/audio/2025/06/09/audio_50b8be7252.mp3';
 // Nhạc chúc mừng hơn phát sau khi nhấp vào bánh
-const wishMusicUrl = 'https://cdn.pixabay.com/audio/2025/06/09/audio_50b8be7252.mp3';
+const wishMusicUrl = '/assets/media/Nếu Như Có Hai Trái Tim.mp3';
 
 
 const App = () => {
@@ -90,12 +90,12 @@ const App = () => {
           <div className="flex flex-col items-center justify-center text-center p-8 animate-fade-in-up">
             <div className="w-full max-w-lg bg-white/70 backdrop-blur-sm rounded-2xl shadow-2xl p-6 md:p-10 transition-all duration-500 flex flex-col items-center gap-6">
               <h1 className="font-dancing text-4xl sm:text-5xl font-bold text-rose-800 tracking-wide">
-                Một lời nhắn đặc biệt đang chờ bạn...
+                Một lời yêu thương đặc biệt đang chờ em...
               </h1>
-              <p className="text-lg text-gray-600">Nhấn vào trái tim để mở thiệp nhé.</p>
+              {/* <p className="text-lg text-gray-600">Nhấn vào trái tim nhé.</p> */}
               <button
                 onClick={handleStartExperience}
-                className="mt-4 animate-heartbeat transition-transform duration-300 hover:scale-110"
+                className="animate-heartbeat transition-transform duration-300 hover:scale-110"
                 aria-label="Bắt đầu trải nghiệm và phát nhạc"
               >
                 <HeartIcon className="w-20 h-20 text-red-400 hover:text-red-500 transition-colors" />
@@ -123,7 +123,7 @@ const App = () => {
                     {/* Title removed as requested */}
 
                     <p className="text-sm sm:text-lg text-rose-700/80 animate-fade-in-up font-medium" style={{ animationDelay: '0.3s' }}>
-                      (Nhấn vào bánh để thổi nến ✨)
+                      (Thổi nến nàaaa ✨)
                     </p>
                   </div>
 
@@ -139,12 +139,12 @@ const App = () => {
             {showMessage && (
               <>
                 <main className="w-full max-w-lg bg-white/70 backdrop-blur-sm rounded-2xl shadow-2xl p-4 transition-all duration-500 animate-fade-in-up flex flex-col items-center gap-2">
-                  <PhotoFrame />
+                  <PhotoFrame folder="second" />
                   <LoveMessage show={true} />
                 </main>
                 <footer className="mt-2 text-center text-rose-800/70 text-sm animate-fade-in-up" style={{ animationDelay: '0.5s' }}>
                   <p className="flex items-center justify-center gap-2">
-                    Làm với <HeartIcon className="w-4 h-4 text-red-500 animate-pulse-gentle" /> dành cho tình yêu của đời tôi.
+                    Bằng <HeartIcon className="w-4 h-4 text-red-500 animate-pulse-gentle" /> dành cho em.
                   </p>
                 </footer>
               </>

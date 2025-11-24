@@ -1,28 +1,42 @@
 import React, { useState, useEffect } from 'react';
 import HeartIcon from './icons/HeartIcon';
 
-// Tạo một thư mục 'assets' trong thư mục public của dự án
-// và thêm hình ảnh của bạn vào đó. Sau đó, cập nhật đường dẫn trong mảng này.
-const images = [
-    // Ví dụ: '/assets/our-trip.jpg',
-    // Ví dụ: '/assets/first-date.png',
-    // Để minh họa, tôi đang sử dụng hình ảnh giữ chỗ từ Unsplash. Thay thế chúng bằng hình của bạn.
-    'https://images.unsplash.com/photo-1524250502761-1ac6f2e30d43?q=80&w=1888&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1502602898657-3e91760c0337?q=80&w=1974&auto=format&fit=crop',
-    'https://images.unsplash.com/photo-1519046904884-53103b34b206?q=80&w=2070&auto=format&fit=crop',
-];
+interface PhotoFrameProps {
+    folder: 'first' | 'second';
+}
 
-const PhotoFrame = () => {
+const PhotoFrame = ({ folder }: PhotoFrameProps) => {
+    const [images, setImages] = useState<string[]>([]);
     const [currentIndex, setCurrentIndex] = useState(0);
+
+    useEffect(() => {
+        // Dynamically load images from the specified folder
+        const loadImages = async () => {
+            const imageFiles: string[] = [];
+            const folderPath = `/assets/images/${folder}`;
+
+            // Determine number of images based on folder
+            const imageCount = folder === 'first' ? 5 : 4;
+
+            // Load images in order (1.jpg, 2.jpg, 3.jpg, etc.)
+            for (let i = 1; i <= imageCount; i++) {
+                imageFiles.push(`${folderPath}/${i}.jpg`);
+            }
+
+            setImages(imageFiles);
+        };
+
+        loadImages();
+    }, [folder]);
 
     useEffect(() => {
         if (images.length > 1) {
             const timer = setInterval(() => {
                 setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-            }, 5000); // Thay đổi hình ảnh mỗi 5 giây
+            }, 2000); // Thay đổi hình ảnh mỗi 5 giây
             return () => clearInterval(timer);
         }
-    }, []);
+    }, [images]);
 
     return (
         <div className="w-11/12 max-w-sm transform -rotate-2 transition-transform duration-500 hover:rotate-0 hover:scale-105">
