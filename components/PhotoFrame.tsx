@@ -33,7 +33,7 @@ const PhotoFrame = ({ folder }: PhotoFrameProps) => {
         if (images.length > 1) {
             const timer = setInterval(() => {
                 setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
-            }, 1000); // Thay đổi hình ảnh mỗi 5 giây
+            }, 2000); // Thay đổi hình ảnh mỗi 5 giây
             return () => clearInterval(timer);
         }
     }, [images]);
